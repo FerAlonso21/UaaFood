@@ -17,6 +17,7 @@ router.get('/',(req,res)=>{
         }
     })
 });
+//hola charly
 router.post('/login',(req,res)=>{
   jwt.sign({user:req.body.usuario},secret_key,(err,token)=>{
       res.json({
