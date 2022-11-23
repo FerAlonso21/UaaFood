@@ -1,13 +1,9 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
+      <div class="d-flex align-items-center">
         <a class="navbar-brand" href="#">
-            <img src="../../../assets/UaaFood.png" alt="" width="50" height="50">
-          </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        
+          <img src="../../../assets/UaaFood.png" alt="" width="50" height="50">
+        </a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -21,17 +17,32 @@
             </ul>
           </li>
         </ul>
+
+      </div>
+        
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
         <form class="d-flex container-fluid justify-content-center" style="border: 1px solid red;">
           <input class="rounded me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-            <button class="btn "  data-bs-target="#ModalForm" data-bs-toggle="modal">Login</button>
+        <div class="d-flex" id="derecha" >
+          <a href="" >
+            <img src="../../../assets/carrito.ico" class="mx-5" id="carrito" alt="" width="35" height="35" style="border: 1px solid blue;">
+          </a>
+          <button class="btn "  data-bs-target="#ModalForm" data-bs-toggle="modal">Login</button>
+          
+        </div>
+            
           
       </div>
     </div>
   </nav>
 
-
+<!-- ----Modal Login---- -->
   <div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">

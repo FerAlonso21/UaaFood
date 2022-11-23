@@ -97,6 +97,15 @@ input{
         font-size: 18px;
     }
   }
+  @media (max-width: 991px){
+    #carrito{
+      margin:0%;
+    }
+    #derecha{
+      justify-content:space-around;
+    }
+
+  }
   #form{
     background-color: #EE691E;
   }
