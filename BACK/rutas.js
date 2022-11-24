@@ -4,9 +4,7 @@ const conexion = require('./src/config/conexion');
 
 const secret_key='Redes22*';
 //
-//Comentr
-//
-//este es otro comentario
+
 
 router.get('/',(req,res)=>{
     let sql ='select * from cafeterias'
