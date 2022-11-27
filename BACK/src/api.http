@@ -1,6 +1,6 @@
-POST     http://localhost:3000/login
+POST       http://localhost:3000/categorias/altaCategorias
 content-type: application/json
 
 {
-    "usuario":"diana alonso"
+    "descripcion":"nueva desc"
 }
