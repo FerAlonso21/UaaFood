@@ -2,11 +2,12 @@ const express=require('express');
 const router = express.Router();
 const conexion = require('../config/conexion');
 
-const locales=require('../controladores/publicidad');
+const usuarios=require('../controladores/usuarios');
 
 
-router.post("/altaPublicidad",locales.altaPublicidad);
-router.post("/getPublicidad",locales.getPublicidad);
+router.post("/altaUsuario",usuarios.altaUsuario);
+//router.post("/login",usuarios.login);
+
 
 
 module.exports=router;

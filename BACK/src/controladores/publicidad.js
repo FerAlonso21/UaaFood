@@ -3,7 +3,10 @@ const conexion = require("../config/conexion");
 publicidadControlador={};
 
 publicidadControlador.altaPublicidad=async(req,res)=>{
-    let sql ='insert into publicidad (Local,Imagen) values ('+req.body.local+',"'+req.body.imagen+'")'
+    
+    console.log("holaaa");
+    res.send({ok:true});
+    /*let sql ='insert into publicidad (Local,Imagen) values ('+req.body.local+',"'+req.body.imagen+'")'
     conexion.query(sql,(err,rows,fields)=>{
         if(err){
             return res.status(400).json({
@@ -16,7 +19,7 @@ publicidadControlador.altaPublicidad=async(req,res)=>{
                 ok: true
               });
         }
-    })
+    })*/
 }
 publicidadControlador.getPublicidad=async(req,res)=>{
     let sql ='select * from publicidad'
@@ -29,7 +32,8 @@ publicidadControlador.getPublicidad=async(req,res)=>{
         } 
         else{
             return res.status(200).json({
-                ok: true
+                ok: true,
+
               });
         }
     })
