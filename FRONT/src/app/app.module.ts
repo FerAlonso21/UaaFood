@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 //Servicios
 
-import {CargarScriptsService} from "./cargar-scripts.service"
+
 
 //Fin Servicios
 
@@ -29,7 +29,7 @@ import { RegistroComponent } from './General/registro/registro.component';
     AppRoutingModule
   ],
   providers: [
-    CargarScriptsService
+
   ],
   bootstrap: [AppComponent]
 })
