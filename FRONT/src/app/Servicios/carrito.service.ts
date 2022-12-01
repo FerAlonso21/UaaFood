@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,7 +6,19 @@ import { Injectable } from '@angular/core';
 })
 export class CarritoService {
 
-  constructor() { }
+  url='http://localhost:3000/carrito/'
+  constructor(private http:HttpClient) { }
+
+  anadirProducto(usuario:number,producto:number,cantidad:number,sabor:string,comentario:string,total:number){//añade productos al carro
+    return this.http.post(this.url+'anadirProd',{usuario:usuario,producto:producto,cantidad:cantidad,sabor:sabor,comentario:comentario,tota:total})
+  }
+  carritoUsuario(usuario:number){//muestra el carrito del usuario
+    return this.http.post(this.url+'carritoActivoUsuario',{usuario:usuario})
+  }
+
+  envioCarrito(usuario:number){//envia el carrito a realizarse 
+    return this.http.post(this.url+'getCaenviarCarrito',{usuario:usuario})
+  }
   /*
     1.En el constructor inyectar el modulo Http
     2.Definir una variable (url) la cual sera un string con la ruta del servidor(Esta ruta sera hasta 

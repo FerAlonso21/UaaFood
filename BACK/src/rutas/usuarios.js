@@ -6,7 +6,7 @@ const usuarios=require('../controladores/usuarios');
 
 
 router.post("/altaUsuario",usuarios.altaUsuario);
-//router.post("/login",usuarios.login);
+router.post("/login",usuarios.login);
 
 
 
