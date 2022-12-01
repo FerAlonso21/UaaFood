@@ -2,7 +2,7 @@ const conexion = require("../config/conexion");
 
 pedidosControlador={};
 
-pedidosControlador.getLocales=async(req,res)=>{
+pedidosControlador.registrarPedido=async(req,res)=>{
     
 }
 

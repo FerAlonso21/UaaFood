@@ -8,7 +8,7 @@ const locales=require('../controladores/publicidad');
 
 router.post("/altaPublicidad",locales.altaPublicidad);
 router.post("/getPublicidad",locales.getPublicidad);
-
+ 
 
 
 module.exports=router;
