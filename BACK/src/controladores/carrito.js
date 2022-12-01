@@ -36,7 +36,7 @@ carritoControlador.CarritoActivoUsuario = async (req, res) => {
             });
         }
     })
-}
+}      
 
 carritoControlador.enviarCarrito = async (req, res) => {
     

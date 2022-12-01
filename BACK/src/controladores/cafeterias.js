@@ -6,7 +6,7 @@ cafeteriasControlador.getCafeterias=async(req,res)=>{
     let sql ='select * from cafeterias'
     conexion.query(sql,(err,rows,fields)=>{
         if(err) throw err;
-        else{
+        else{ 
             return res.status(200).json({
                 ok: true,
                 info: rows
