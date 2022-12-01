@@ -14,6 +14,8 @@ import { NavbarComponent } from './General/navbar/navbar.component';
 import { HomeComponent } from './General/home/home.component';
 import { FooterComponent } from './General/footer/footer.component';
 import { RegistroComponent } from './General/registro/registro.component';
+//hola
+//hola charly
 
 @NgModule({
   declarations: [
