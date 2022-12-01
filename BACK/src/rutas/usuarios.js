@@ -1,13 +1,13 @@
-const router = require('express').Router();
+const express=require('express');
+const router = express.Router();
 const conexion = require('../config/conexion');
 
-router.get('/',(req,res)=>{
-    let sql ='select * from locales'
-    conexion.query(sql,(err,rows,fields)=>{
-        if(err) throw err;
-        else{
-            res.json(rows)
-        }
-    })
-});
- 
+const usuarios=require('../controladores/usuarios');
+
+
+router.post("/altaUsuario",usuarios.altaUsuario);
+//router.post("/login",usuarios.login);
+
+
+
+module.exports=router;
