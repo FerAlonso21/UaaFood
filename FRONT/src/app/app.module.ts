@@ -17,6 +17,9 @@ import { RegistroComponent } from './General/registro/registro.component';
 //hola
 //hola charly
 
+
+// comentario charly
+//comentario charly2
 @NgModule({
   declarations: [
     AppComponent,
