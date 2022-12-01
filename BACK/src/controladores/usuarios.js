@@ -5,7 +5,7 @@ const SECRET_KEY ='Redes22'
 
 usuariosControlador={};
 
-/*usuariosControlador.login=async(req,res)=>{
+usuariosControlador.login=async(req,res)=>{
     let sql ='select * from usuarios where ID='+req.body.id
      conexion.query(sql,async (err,rows,fields)=>{
         if(err){
@@ -14,7 +14,6 @@ usuariosControlador={};
         } 
         else{
             const contraValida =await  bcrypt.compare(req.body.contrasena,rows[0].Contrasena);
-            
             if (contraValida){
                 const expiresIn= 24*60*60;
                 const accesToken =jwt.sign({id: rows.ID},SECRET_KEY,{expiresIn:expiresIn});
@@ -33,7 +32,7 @@ usuariosControlador={};
             }
         }
     })
-}*/
+}
 
 usuariosControlador.altaUsuario=async(req,res)=>{
     let contra=bcrypt.hashSync(req.body.contrasena)

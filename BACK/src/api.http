@@ -1,3 +1,6 @@
-GET        http://localhost:3000/cafeterias/getCafeterias
+POST         http://localhost:3000/carrito/enviarCarrito
 content-type: application/json
 
+{
+    "usuario":"5151" 
+}

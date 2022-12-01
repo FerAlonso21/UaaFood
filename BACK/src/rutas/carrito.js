@@ -4,7 +4,9 @@ const conexion = require('../config/conexion');
 
 const carrito=require('../controladores/carrito');
 
-router.get("/anadirProd",carrito.addCarrito);
+router.post("/anadirProd",carrito.addCarrito);
+router.post("/carritoActivoUsuario",carrito.CarritoActivoUsuario);
+router.post("/enviarCarrito",carrito.enviarCarrito);
 
 
 module.exports=router;
