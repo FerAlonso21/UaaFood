@@ -15,6 +15,9 @@ import { HomeComponent } from './General/home/home.component';
 import { FooterComponent } from './General/footer/footer.component';
 import { RegistroComponent } from './General/registro/registro.component';
 
+
+// comentario charly
+//comentario charly2
 @NgModule({
   declarations: [
     AppComponent,
