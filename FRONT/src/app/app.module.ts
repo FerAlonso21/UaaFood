@@ -15,6 +15,7 @@ import { HomeComponent } from './General/home/home.component';
 import { FooterComponent } from './General/footer/footer.component';
 import { RegistroComponent } from './General/registro/registro.component';
 //hola
+import {HttpClientModule} from '@angular/common/http'
 //hola charly
 
 
@@ -31,7 +32,8 @@ import { RegistroComponent } from './General/registro/registro.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
 
