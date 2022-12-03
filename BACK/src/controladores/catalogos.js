@@ -9,13 +9,12 @@ catalogoControlador.crearCatalogo = async (req, res) => {
 
             return res.status(400).json({
                 ok: false,
-                error: err
+                info: err
             });
         }
         else {
             return res.status(200).json({
-                ok: true,
-                info: rows
+                ok: true
             });
         }
     })
@@ -29,7 +28,7 @@ catalogoControlador.altaCatalogo = async (req, res) => {
         conexion.query(sql, (err, rows, fields) => {
             if (err) {
                 return res.status(400).json({
-                    ok: false,
+                    ok: false, 
                     error: err
                 });
             }
@@ -42,7 +41,6 @@ catalogoControlador.altaCatalogo = async (req, res) => {
                 }
             }
         })
-
     }
 
 

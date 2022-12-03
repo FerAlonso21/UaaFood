@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { datosCatalogo } from 'src/app/Interfaces/datosCatalogo.interface';
+import { CafeteriasService } from 'src/app/Servicios/cafeterias.service';
+import { CatalogosService } from 'src/app/Servicios/catalogos.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +10,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+ 
+ 
+  
+  datos:datosCatalogo[]=[{
+    descripcion:'descuno',
+    precio:15.4
+  },{
+    descripcion:'nuevasde',
+    precio:78.5
+  }];
 
-  constructor() { }
+  constructor(private servicoCafeterias:CafeteriasService, private serviciocatalogo:CatalogosService) { }
 
   ngOnInit(): void {
+    this.servicoCafeterias.getCafeterias().subscribe((res:any)=>{
+      if(res.ok==true){
+        for(let i of res.info){
+            console.log(i.Nombre)
+        }
+      }
+    })
+
+    this.serviciocatalogo.crearCatalogo(2,2).subscribe((res:any)=>{
+      if(res.ok==true){
+        console.log("si hizo la tabla");
+        this.serviciocatalogo.altaItemCatalogo(2,2,this.datos).subscribe((res:any)=>{
+          console.log(res) 
+        })
+      }
+    })
+    
   }
 
 }

@@ -1,6 +1,7 @@
-POST         http://localhost:3000/carrito/enviarCarrito
+POST         http://localhost:3000/catalogo/crearCatalogo
 content-type: application/json
 
 {
-    "usuario":"5151" 
+    "local":"2" ,
+    "producto":"3"
 }
