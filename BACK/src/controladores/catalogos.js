@@ -1,6 +1,29 @@
 const conexion = require("../config/conexion");
 
 catalogoControlador = {};
+catalogoControlador.eliminarProductoCatalogo=async(req,res)=>{
+    let sql ='delete c'+req.body.local+'_'+req.body.producto+' where ID='+req.body.id
+    conexion.query(sql,(err,rows,fields)=>{
+        if(err) throw err;
+        else{ 
+            return res.status(200).json({
+                ok: true
+              });
+        }
+    })
+}
+catalogoControlador.modificarPrecioCatalogo=async(req,res)=>{
+    let sql ='update c'+req.body.local+'_'+req.body.producto+' set Precio='+req.body.precio+' where ID='+req.body.id
+    conexion.query(sql,(err,rows,fields)=>{
+        if(err) throw err;
+        else{ 
+            return res.status(200).json({
+                ok: true
+              });
+        }
+    })
+}
+
 
 catalogoControlador.crearCatalogo = async (req, res) => {
     let sql = 'create table C' + req.body.local + '_' + req.body.producto + ' (ID int auto_increment, Descripcion varchar(50), Precio float, primary key (ID))'

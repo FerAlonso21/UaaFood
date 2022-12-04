@@ -2,8 +2,22 @@ const conexion = require("../config/conexion");
 
 cafeteriasControlador={};
 
+
+cafeteriasControlador.modificarRuta=async(req,res)=>{
+    let sql ='update cafeterias set imagen='+req.body.ruta+' where ID='+req.body.cafeteria
+    conexion.query(sql,(err,rows,fields)=>{
+        if(err) throw err;
+        else{ 
+            return res.status(200).json({
+                ok: true
+              });
+        }
+    })
+}
+
 cafeteriasControlador.getCafeterias=async(req,res)=>{
-    let sql ='select * from cafeterias'
+    // let sql ='select * from cafeterias'
+    let sql ='call Cafeterias()'
     conexion.query(sql,(err,rows,fields)=>{
         if(err) throw err;
         else{ 

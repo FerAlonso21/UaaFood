@@ -8,5 +8,6 @@ const ctlg=require('../controladores/catalogos');
 router.post("/crearCatalogo",ctlg.crearCatalogo);
 router.post("/altaCatalogo",ctlg.altaCatalogo);
 router.post("/getCatalogo",ctlg.getCatalogo);
+router.post("/modificarPrecio",ctlg.modificarPrecioCatalogo);
 
 module.exports=router; 

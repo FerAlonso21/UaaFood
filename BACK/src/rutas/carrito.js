@@ -7,6 +7,7 @@ const carrito=require('../controladores/carrito');
 router.post("/anadirProd",carrito.addCarrito);
 router.post("/carritoActivoUsuario",carrito.CarritoActivoUsuario);
 router.post("/enviarCarrito",carrito.enviarCarrito);
+router.post("/totalCarrito",carrito.totalXcarrito);
 
 
 module.exports=router;
