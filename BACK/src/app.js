@@ -14,6 +14,7 @@ const categoriasrutas=require('./rutas/categorias');
 const publicidadrutas=require('./rutas/publicidad');
 const productosrutas=require('./rutas/productos');
 const carritorutas=require('./rutas/carrito');
+const pedidosrutas=require('./rutas/pedidos');
 
 require('../src/config/conexion') ;
 
@@ -80,7 +81,7 @@ app.use('/cafeterias',cafeteriasRutas); //EndPoint Cafeterias
 app.use('/locales',localesrutas); //EndPoint Cafeterias 
 app.use('/carrito',carritorutas); //EndPoint Cafeterias
 app.use('/categorias',categoriasrutas); //EndPoint Cafeterias
-app.use('/pedidos',cafeteriasRutas); //EndPoint Cafeterias
+app.use('/pedidos',pedidosrutas); //EndPoint Cafeterias
 app.use('/productos',productosrutas); //EndPoint Cafeterias
 app.use('/publicidad',publicidadrutas); //EndPoint Cafeterias
 app.use('/usuarios',cafeteriasRutas); //EndPoint Cafeterias

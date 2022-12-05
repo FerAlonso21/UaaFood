@@ -2,6 +2,45 @@ const conexion = require("../config/conexion");
 
 localesControlador={};
 
+
+localesControlador.buscarLocalesConMasDeNproductos=async(req,res)=>{
+    let sql ='select count(ID),ID_Local from productos group by ID_local having count(ID) >'+req.body.cantidad
+    conexion.query(sql,(err,rows,fields)=>{
+        if(err) throw err;
+        else{ 
+            return res.status(200).json({
+                ok: true,
+                info:rows
+              });
+        }
+    })
+}
+
+localesControlador.LocalesXcafeteria=async(req,res)=>{
+    let sql ='select Cafeterias.Nombre, count(locales.ID) from locales left join cafeterias on locales.ID_Cafeteria=cafeterias.ID group by Nombre'
+    conexion.query(sql,(err,rows,fields)=>{
+        if(err) throw err;
+        else{ 
+            return res.status(200).json({
+                ok: true,
+                info:rows
+              });
+        }
+    })
+}
+
+localesControlador.modificarLocal=async(req,res)=>{
+    let sql ='update locales set Logo='+req.body.ruta+' where ID='+req.body.local
+    conexion.query(sql,(err,rows,fields)=>{
+        if(err) throw err;
+        else{ 
+            return res.status(200).json({
+                ok: true
+              });
+        }
+    })
+}
+
 localesControlador.getLocales=async(req,res)=>{
     let sql ='select * from locales '
     conexion.query(sql,(err,rows,fields)=>{
