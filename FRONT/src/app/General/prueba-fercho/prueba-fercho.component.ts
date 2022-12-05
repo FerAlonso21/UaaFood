@@ -13,14 +13,7 @@ export class PruebaFerchoComponent implements OnInit {
   ngOnInit(): void {
     this.serviciocafetrias.getCafeterias().subscribe((res:any)=>{
       //console.log("aqui es todo lo que regresa",res);
-      if(res.ok==true){
-     // console.log("lo que me interesa",res.info[0].data)
-        for(let i of res.info[0].data[0].marvelData){
-          this.listado.push(i.title);
-          console.log(i.title);
-        }
-          
-      }
+      console.log(res);
     })
 
   }
