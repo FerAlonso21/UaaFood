@@ -10,6 +10,11 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   {path: 'home', component: HomeComponent},
   {path: 'registro', component: RegistroComponent}
+  //CHARLY AQUI DEJAME ESTAS 3 LINEAS EN BLANCO PARA YO PONER COSAS
+
+
+
+  //
 ];
 
 @NgModule({
