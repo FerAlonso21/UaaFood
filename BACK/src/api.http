@@ -1,6 +1,0 @@
-POST         http://localhost:3000/pedidos/ordenesLocal
-content-type: application/json
-
-{
-    "local":"2"
-}
