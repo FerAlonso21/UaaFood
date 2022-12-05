@@ -2,6 +2,44 @@ const conexion = require("../config/conexion");
 
 productosControlador={};
 
+productosControlador.productoMasCaroXlocal=async(req,res)=>{
+    let sql ='select max(Precio),producto from productos where ID_Local='+req.body.local
+    conexion.query(sql,(err,rows,fields)=>{
+        if(err) throw err;
+        else{ 
+            return res.status(200).json({
+                ok: true,
+                info:rows
+              });
+        }
+    })
+}
+
+productosControlador.productoMasBaratoXlocal=async(req,res)=>{
+    let sql ='select min(Precio),producto from productos where ID_Local='+req.body.local
+    conexion.query(sql,(err,rows,fields)=>{
+        if(err) throw err;
+        else{ 
+            return res.status(200).json({
+                ok: true,
+                info:rows
+              });
+        }
+    })
+}
+
+productosControlador.modificarPrecioSinCatalogo=async(req,res)=>{
+    let sql ='update productos set Precio='+req.body.precio+' where ID='+req.body.id
+    conexion.query(sql,(err,rows,fields)=>{
+        if(err) throw err;
+        else{ 
+            return res.status(200).json({
+                ok: true
+              });
+        }
+    })
+}
+
 productosControlador.altaProducto=async(req,res)=>{
     let sql ='insert into productos (ID_Local,Producto,Descripcion,Categoria,Imagen,Catalogo,Precio) values ('+req.body.local+',"'+req.body.producto+'","'+req.body.descripcion+'",'+req.body.categoria+',"'+req.body.imagen+'",'+req.body.catalogo+','+req.body.precio+')'
     conexion.query(sql,(err,rows,fields)=>{
@@ -19,7 +57,8 @@ productosControlador.altaProducto=async(req,res)=>{
     })
 }
 productosControlador.getProductosLocal=async(req,res)=>{
-    let sql ='select * from productos where ID_Local='+req.body.local
+   // let sql ='select * from productos where ID_Local='+req.body.local
+   let sql ='call ProductosXLocal('+req.body.local+')'
     conexion.query(sql,(err,rows,fields)=>{
         if(err){
             return res.status(400).json({

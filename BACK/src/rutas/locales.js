@@ -9,5 +9,8 @@ router.post("/altaLocal",locales.altaLocal);
 router.post("/localesCategoria",locales.LocalesXcategoria);
 router.post("/getlocales",locales.getLocales);
 router.post("/localesCafeteria",locales.getLocalesXcafeteria);
+router.post("/modificarLogo",locales.modificarLocal);
+router.post("/localesXcafeteria",locales.LocalesXcafeteria);
+router.post("/cantidadProductosLocal",locales.buscarLocalesConMasDeNproductos);
 
 module.exports=router;
