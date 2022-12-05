@@ -5,11 +5,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CafeteriasService {
 
-  url='http://localhost:3000/cafeterias/'
+  url='http://localhost:3000/own/'
   constructor(private http:HttpClient) { }
 
   getCafeterias(){
-    return this.http.get(this.url+'getCafeterias')
+    return this.http.post(this.url+'getInfoProfile',{mail:'roiter2'})
   }
   getCafeteria(id:number){
     return this.http.post(this.url+'getCafeteria',{id:id})

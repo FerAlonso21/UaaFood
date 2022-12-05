@@ -2,6 +2,7 @@ const conexion = require("../config/conexion");
 
 cafeteriasControlador={};
 
+//pero a esto si le quiero hacer push
 
 cafeteriasControlador.modificarRuta=async(req,res)=>{
     let sql ='update cafeterias set imagen='+req.body.ruta+' where ID='+req.body.cafeteria
