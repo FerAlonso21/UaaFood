@@ -1,7 +1,15 @@
+<<<<<<< Updated upstream
 POST         http://localhost:3000/catalogo/crearCatalogo
 content-type: application/json
 
 {
     "local":"2" ,
     "producto":"3"
+=======
+GET         http://localhost:3000/cafeterias/getCafeteria
+content-type: application/json
+
+{
+    "id":"1" 
+>>>>>>> Stashed changes
 }
