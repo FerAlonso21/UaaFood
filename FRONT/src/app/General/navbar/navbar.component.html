@@ -9,11 +9,8 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Cafeterias
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" *ngFor="let i of cafeterias">
+            <li><a class="dropdown-item" href="#" [routerLink]="['/cafeteria']">{{i}}</a></li>
           </ul>
         </li>
       </ul>
@@ -25,13 +22,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       
-      <form class="d-flex container-fluid justify-content-center" style="border: 1px solid red;">
-        <input class="rounded me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class="d-flex container-fluid justify-content-center" >
+        <input class="rounded me-2" type="search" placeholder="Que quieres comer hoy?!" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
       <div class="d-flex" id="derecha" >
         <a href="" >
-          <img src="../../../assets/carrito.ico" class="mx-5" id="carrito" alt="" width="35" height="35" style="border: 1px solid blue;">
+          <img src="../../../assets/carrito.ico" class="mx-5" id="carrito" alt="" width="35" height="35" >
         </a>
         <button class="btn "  data-bs-target="#ModalForm" data-bs-toggle="modal">Login</button>
         
