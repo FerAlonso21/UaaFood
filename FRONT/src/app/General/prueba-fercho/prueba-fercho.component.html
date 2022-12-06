@@ -1,1 +1,30 @@
-<p>prueba-fercho works!</p>
+<div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Comentario</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Estatus</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let i of listado">
+                     <td>{{i.Producto}}</td>
+                     <td>{{i.Cantidad}}</td>
+                     <td>{{i.Comentario}}</td>
+                     <td>{{i.Cliente}}</td>
+                     <td><button [disabled]="bandera" (click)="funcion1()">Comenzar Pedido</button></td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+        </div>
+        <div class="col">
+            <p>TEXTTP:{{info}}</p>
+        </div>
+        
+    </div>
+    
+</div>

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 //DE AQUI
-
+import { CookieService } from 'ngx-cookie-service';
 
 //A, AQUI NO LE PONGAS NADA CHARLY
 //Servicios
 
-
+//aqui le voy a poner cosa pero no quiero hacerle push a esto
 
 //Fin Servicios
 
@@ -42,7 +42,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
-
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

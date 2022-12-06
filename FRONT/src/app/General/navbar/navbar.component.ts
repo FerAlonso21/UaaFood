@@ -13,28 +13,12 @@ import { UsuariosService } from 'src/app/Servicios/usuarios.service';
 })
 export class NavbarComponent implements OnInit {
  
-  id=0;
-  cont='';
-  constructor(private ServicioUsuarios:UsuariosService ) { }
-  cafeterias:any=[];
   
+  constructor(private ServicioUsuarios:UsuariosService ) { }
+
+
+
   ngOnInit(): void {
 
-
-    // sessionStorage.setItem('nonomina',res.nonomina);
-    console.log(this.id);
-    console.log(this.cont);
   }
-  login(): void{
-    
-    // this.ServicioUsuarios.login(this.id,this.cont).subscribe((res:any)=>{
-    //   if(res.ok==true){
-    //     console.log(res);
-        
-    //   }
-    // })
-  }
-
   
-
-}
