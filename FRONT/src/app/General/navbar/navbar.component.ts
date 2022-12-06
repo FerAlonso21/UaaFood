@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
     precio:78.5
   }];
 
-  constructor(private servicoCafeterias:CafeteriasService, private serviciocatalogo:CatalogosService) { }
+  constructor(private servicoCafeterias:CafeteriasService, ) { }
 
   ngOnInit(): void {
     this.servicoCafeterias.getCafeterias().subscribe((res:any)=>{
@@ -32,14 +32,7 @@ export class NavbarComponent implements OnInit {
       }
     })
 
-    this.serviciocatalogo.crearCatalogo(2,2).subscribe((res:any)=>{
-      if(res.ok==true){
-        console.log("si hizo la tabla");
-        this.serviciocatalogo.altaItemCatalogo(2,2,this.datos).subscribe((res:any)=>{
-          console.log(res) 
-        })
-      }
-    })
+   
     
   }
 
