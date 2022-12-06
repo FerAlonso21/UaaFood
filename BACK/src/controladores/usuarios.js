@@ -13,14 +13,15 @@ usuariosControlador.login=async(req,res)=>{
             throw err;
         } 
         else{
+          
             const contraValida =await  bcrypt.compare(req.body.contrasena,rows[0].Contrasena);
             if (contraValida){
                 const expiresIn= 24*60*60;
                 const accesToken =jwt.sign({id: rows.ID},SECRET_KEY,{expiresIn:expiresIn});
                 return res.status(200).json({
                     ok:true,
-                    usuario:rows.Nombre,
-                    tipo:rows.Tipo,
+                    usuario:rows[0].Nombre,
+                    tipo:rows[0].Tipo,
                     accesToken:accesToken,
                     expiresIn:expiresIn 
                 });

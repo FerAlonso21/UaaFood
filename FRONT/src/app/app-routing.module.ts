@@ -12,8 +12,8 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'registro', component: RegistroComponent},
   //CHARLY AQUI DEJAME ESTAS 3 LINEAS EN BLANCO PARA YO PONER COSAS
-  {path: 'prueba', component: PruebaFerchoComponent}
-
+  //{path: 'prueba', component: PruebaFerchoComponent}
+  {path: ':room', component: PruebaFerchoComponent}
 
   //
 ];

@@ -11,4 +11,7 @@ export class PedidosService {
   getLocales(){//muestra el carrito del usuario
     return this.http.post(this.url+'getlocales',{})
   }
+  getPedidosXlocal(local:number){
+    return this.http.post(this.url+'ordenesLocal',{local:local})
+  }
 }
