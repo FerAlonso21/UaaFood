@@ -1,1 +1,11 @@
-<p>cafeteria works!</p>
+
+<div class="d-flex mt-4">
+    <div *ngFor="let i of locales" class="card mx-1" style="width:400px" >
+        <a href="" style="text-decoration: none; color:black;" [routerLink]="['/local']" (click)="acceder(i.ID)">  
+            <img class="card-img-top" src="" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">{{i.Nombre}}</h4>
+              <p class="card-text">{{i.Descripcion}}</p>
+            </div>
+        </a>
+</div>

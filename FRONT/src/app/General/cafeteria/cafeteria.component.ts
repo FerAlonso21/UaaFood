@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Params, ActivatedRoute, Router } from '@angular/router';
+import { asyncScheduler } from 'rxjs';
+import { LocalesService } from 'src/app/Servicios/locales.service';
 
 @Component({
   selector: 'app-cafeteria',
@@ -6,10 +9,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cafeteria.component.css']
 })
 export class CafeteriaComponent implements OnInit {
-
-  constructor() { }
+  locales:any=[];
+  id: any;
+  
+  constructor(private servicioLocales:LocalesService,private router: ActivatedRoute,private route:Router) { }
 
   ngOnInit(): void {
+    this.router.queryParams.subscribe(
+      (params: Params)=>{
+        this.id = params['ID']; 
+        console.log(this.id);
+      }
+    )
+
+
+    this.servicioLocales.localesXcafeteria(this.id).subscribe((res:any)=>{
+      if(res.ok==true){
+        console.log(res);
+        for(let i of res.info){
+         this.locales.push(i);
+         //console.log(i);
+        }
+      }
+    })
+
   }
+  acceder(idlocal:any):void{
+    this.route.navigate(['/local'],{queryParams:{ID:idlocal}});
+
+  }
+  
 
 }

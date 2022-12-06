@@ -18,7 +18,7 @@ const routes: Routes = [
 
   //
   {path: 'cafeteria', component: CafeteriaComponent},
-  {path: 'local', component: LocalComponent}
+  {path: 'local', component: LocalComponent},
 ];
 
 @NgModule({

@@ -1,1 +1,2 @@
-GET http://localhost:4200/cafeterias/getCafeterias
+GET http://localhost:3000/cafeterias/getCafeterias
+Content-Type: application/json
