@@ -21,6 +21,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { PruebaFerchoComponent } from './General/prueba-fercho/prueba-fercho.component';
 import { LocalComponent } from './General/local/local.component'
 import { CafeteriaComponent } from './General/cafeteria/cafeteria.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CafeteriaComponent } from './General/cafeteria/cafeteria.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
 

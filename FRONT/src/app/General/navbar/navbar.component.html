@@ -20,7 +20,7 @@
         <a href="" >
           <img src="../../../assets/carrito.ico" class="mx-5" id="carrito" alt="" width="35" height="35" >
         </a>
-        <button class="btn "  data-bs-target="#ModalForm" data-bs-toggle="modal">Login</button>
+        <button class="btn "[routerLink]="['/login']">Login</button>
         
       </div>
           
@@ -39,14 +39,14 @@
               <h1 class="text-center">Inicia Sesion</h1>
               <form>
                   <div class="mb-3 mt-4">
-                      <label for="exampleInputEmail1" class="form-label">Correo</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <label for="exampleInputEmail1" class="form-label">ID</label>
+                      <input type="number" ng-model="id" class="form-control" id="exampleInputID" >
                   </div>
                   <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
+                      <input type="password" ng-model="cont" class="form-control" id="exampleInputPassword1">
                   </div>
-                  <button type="submit" class="btn btn-light mt-3">Iniciar Sesion</button>
+                  <button  onclick="login()">Iniciar Sesion</button>
                   <p>Nuevo Usuario?    <a data-bs-dismiss="modal" [routerLink]="['/registro']">Registrate</a></p>
               </form>
           </div>

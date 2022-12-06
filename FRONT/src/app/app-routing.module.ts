@@ -19,6 +19,7 @@ const routes: Routes = [
   //
   {path: 'cafeteria', component: CafeteriaComponent},
   {path: 'local', component: LocalComponent},
+  {path: 'login', component: LoginComponent},
 ];
 
 @NgModule({

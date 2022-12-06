@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { datosCatalogo } from 'src/app/Interfaces/datosCatalogo.interface';
 import { CafeteriasService } from 'src/app/Servicios/cafeterias.service';
 import { CatalogosService } from 'src/app/Servicios/catalogos.service';
+import { UsuariosService } from 'src/app/Servicios/usuarios.service';
 
 
 @Component({
@@ -12,29 +13,26 @@ import { CatalogosService } from 'src/app/Servicios/catalogos.service';
 })
 export class NavbarComponent implements OnInit {
  
- 
-  
-  datos:datosCatalogo[]=[{
-    descripcion:'descuno',
-    precio:15.4
-  },{
-    descripcion:'nuevasde',
-    precio:78.5
-  }];
-
-  constructor(private servicioCafeterias:CafeteriasService) { }
+  id=0;
+  cont='';
+  constructor(private ServicioUsuarios:UsuariosService ) { }
   cafeterias:any=[];
   
   ngOnInit(): void {
-    this.servicioCafeterias.getCafeterias().subscribe((res:any)=>{
-      if(res.ok==true){
+
+
+    // sessionStorage.setItem('nonomina',res.nonomina);
+    console.log(this.id);
+    console.log(this.cont);
+  }
+  login(): void{
+    
+    // this.ServicioUsuarios.login(this.id,this.cont).subscribe((res:any)=>{
+    //   if(res.ok==true){
+    //     console.log(res);
         
-       this.cafeterias=res.info[0]
-       console.log(this.cafeterias)
-
-      }
-    })
-
+    //   }
+    // })
   }
 
   
