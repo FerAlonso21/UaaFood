@@ -1,6 +1,1 @@
-POST              http://localhost:3000/usuarios/login
-content-type: application/json
 
-{
-   "id":"857462","contrasena":"redes22"
-}

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { CafeteriaComponent } from './General/cafeteria/cafeteria.component';
 import { HomeComponent } from './General/home/home.component';
+import { LocalComponent } from './General/local/local.component';
 import { LoginComponent } from './General/login/login.component';
 import { NavbarComponent } from './General/navbar/navbar.component';
 import { PruebaFerchoComponent } from './General/prueba-fercho/prueba-fercho.component';
@@ -16,6 +18,9 @@ const routes: Routes = [
   {path: ':room', component: PruebaFerchoComponent}
 
   //
+  {path: 'cafeteria', component: CafeteriaComponent},
+  {path: 'local', component: LocalComponent},
+  {path: 'login', component: LoginComponent},
 ];
 
 @NgModule({

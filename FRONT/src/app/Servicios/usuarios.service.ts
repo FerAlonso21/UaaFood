@@ -13,6 +13,7 @@ export class UsuariosService {
     return this.http.post(this.url+'altaUsuario',{id:id,nombre:nombre,contrasena:contrasena,tipo:tipo})
   }
   login(id:number,contrasena:string){//muestra el carrito del usuario
+    console.log(this.url+'login');
     return this.http.post(this.url+'login',{id:id,contrasena:contrasena})
   }
 }

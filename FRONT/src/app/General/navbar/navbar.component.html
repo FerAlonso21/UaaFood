@@ -4,19 +4,6 @@
       <a class="navbar-brand" href="#">
         <img src="../../../assets/UaaFood.png" alt="" width="50" height="50">
       </a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Cafeterias
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
 
     </div>
       
@@ -25,15 +12,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       
-      <form class="d-flex container-fluid justify-content-center" style="border: 1px solid red;">
-        <input class="rounded me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class="d-flex container-fluid justify-content-center" >
+        <input class="rounded me-2" type="search" placeholder="Que quieres comer hoy?!" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
       <div class="d-flex" id="derecha" >
         <a href="" >
-          <img src="../../../assets/carrito.ico" class="mx-5" id="carrito" alt="" width="35" height="35" style="border: 1px solid blue;">
+          <img src="../../../assets/carrito.ico" class="mx-5" id="carrito" alt="" width="35" height="35" >
         </a>
-        <button class="btn "  data-bs-target="#ModalForm" data-bs-toggle="modal">Login</button>
+        <button class="btn "[routerLink]="['/login']">Login</button>
         
       </div>
           
@@ -52,14 +39,14 @@
               <h1 class="text-center">Inicia Sesion</h1>
               <form>
                   <div class="mb-3 mt-4">
-                      <label for="exampleInputEmail1" class="form-label">Correo</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <label for="exampleInputEmail1" class="form-label">ID</label>
+                      <input type="number" ng-model="id" class="form-control" id="exampleInputID" >
                   </div>
                   <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
+                      <input type="password" ng-model="cont" class="form-control" id="exampleInputPassword1">
                   </div>
-                  <button type="submit" class="btn btn-light mt-3">Iniciar Sesion</button>
+                  <button  onclick="login()">Iniciar Sesion</button>
                   <p>Nuevo Usuario?    <a data-bs-dismiss="modal" [routerLink]="['/registro']">Registrate</a></p>
               </form>
           </div>
