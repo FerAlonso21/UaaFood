@@ -48,7 +48,7 @@ export class AltaProductosComponent implements OnInit {
     })
 
 
-    //sessionStorage.setItem('idl','85741')
+    sessionStorage.setItem('idl','3')
     this.servicioLocal.infoLocalXpropietario(Number( sessionStorage.getItem('idl'))).subscribe((res:any)=>{
       if(res.ok==true){
         this.infoLocal=res.info[0];
