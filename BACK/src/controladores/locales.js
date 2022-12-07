@@ -3,6 +3,21 @@ const conexion = require("../config/conexion");
 localesControlador={};
 
 
+
+
+localesControlador.obtenerLocalPropietario=async(req,res)=>{
+    let sql = 'select * from locales where propietario='+req.body.propietario
+    conexion.query(sql,(err,rows,fields)=>{
+        if(err) throw err;
+        else{ 
+            return res.status(200).json({
+                ok: true,
+                info:rows
+              });
+        }
+    })
+}
+
 localesControlador.buscarLocalesConMasDeNproductos=async(req,res)=>{
     let sql ='select count(ID),ID_Local from productos group by ID_local having count(ID) >'+req.body.cantidad
     conexion.query(sql,(err,rows,fields)=>{

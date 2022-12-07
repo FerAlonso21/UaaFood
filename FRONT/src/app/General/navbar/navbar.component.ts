@@ -30,5 +30,5 @@ export class NavbarComponent implements OnInit {
     console.log(this.tipo);
   }
   
-  
+
 }

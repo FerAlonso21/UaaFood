@@ -63,9 +63,29 @@ productosControlador.altaProducto=async(req,res)=>{
               });
         }
         else{
-            return res.status(200).json({
-                ok: true
-              });
+            let sql2 = 'SELECT LAST_INSERT_ID()'
+            conexion.query(sql2, (err, rows2, fields) => {
+                if (err) {
+                    return res.status(400).json({
+                        ok: false,
+                        error: err
+                    });
+                }
+                else {
+                    let auxstring=JSON.stringify(rows2);
+                    let dividir=auxstring.split(':');
+                    let aux1 =dividir[1];
+                    let aux2 =aux1.split('}');
+
+                
+                   console.log("aux2",aux2[0]);
+                    return res.status(200).json({
+                        ok: true,
+                        info:parseInt(aux2)
+
+                    });
+                }
+            })
         }
     })
 }

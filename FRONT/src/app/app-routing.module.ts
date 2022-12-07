@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AltaProductosComponent } from './AdminLocal/alta-productos/alta-productos.component';
 import { AppComponent } from './app.component';
 import { CafeteriaComponent } from './General/cafeteria/cafeteria.component';
 import { HomeComponent } from './General/home/home.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'registro', component: RegistroComponent},
   //CHARLY AQUI DEJAME ESTAS 3 LINEAS EN BLANCO PARA YO PONER COSAS
+  {path: 'adminLocal', component: AltaProductosComponent},
   //{path: 'prueba', component: PruebaFerchoComponent}
   //{path: ':room', component: PruebaFerchoComponent},
 
