@@ -32,4 +32,10 @@ aProductosXprecioascXlocal(local:number){//muestra el carrito del usuario
 productoXid(id:number){//muestra el carrito del usuario
   return this.http.post(this.url+'productoXid',{id:id})
 }
+
+modificarPrecio(id:number,precio:number){//muestra el carrito del usuario
+  return this.http.post(this.url+'updatePrecio',{id:id,precio:precio})
+}
+
+
 }

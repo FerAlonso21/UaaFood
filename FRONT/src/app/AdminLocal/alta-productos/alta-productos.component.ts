@@ -16,6 +16,9 @@ export class AltaProductosComponent implements OnInit {
   idlocal:number=0;
   add:number=0;
   menu:any;
+  idproducto:number=0;
+  validar:boolean=false;
+  infoProducto:any='';
   datosPcatalogo:datosCatalogo[]=[
     {
       precio:0,
@@ -25,9 +28,14 @@ export class AltaProductosComponent implements OnInit {
   private fileTmp:any;
 
   formulario!:FormGroup;
+  formulario2!:FormGroup;
   constructor(private sevicioCatalogo:CatalogosService,private servicioLocal:LocalesService,private servicioProductos:ProductosService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
+
+    this.formulario2=this.fb.group({
+      precio:['',Validators.required]
+    })
 
     this.formulario=this.fb.group({
         Producto:['',Validators.required],
@@ -40,10 +48,11 @@ export class AltaProductosComponent implements OnInit {
     })
 
 
-    sessionStorage.setItem('id','85741')
-    this.servicioLocal.infoLocalXpropietario(Number( sessionStorage.getItem('id'))).subscribe((res:any)=>{
+    //sessionStorage.setItem('idl','85741')
+    this.servicioLocal.infoLocalXpropietario(Number( sessionStorage.getItem('idl'))).subscribe((res:any)=>{
       if(res.ok==true){
         this.infoLocal=res.info[0];
+        
         this.idlocal=Number(res.info[0].ID);
         this.servicioProductos.productosXlocal(this.idlocal).subscribe((res:any)=>{
           if(res.ok==true){
@@ -127,9 +136,31 @@ export class AltaProductosComponent implements OnInit {
 
   detalleProducto(id:number){
     if(this.add==2){
-      
+      this.idproducto=id;
+      this.validar=true;
+      this.servicioProductos.productoXid(id).subscribe((res:any)=>{
+        if(res.ok==true){
+          this.infoProducto=res.info[0]
+          console.log(this.infoProducto)
+        }
+      })
     }
     
+  }
+
+  actualizarPrecio(){
+      this.servicioProductos.modificarPrecio(this.idproducto,this.formulario2.get('precio')?.value).subscribe((res:any)=>{
+        if(res.ok==true){
+          this.formulario2.reset();
+          this.menu=[];
+                      this.servicioProductos.productosXlocal(this.idlocal).subscribe((res5:any)=>{
+                        if(res5.ok==true){
+                          this.menu=res5.info[0];
+                        }
+                    })
+
+        }
+      })
   }
 
   anadirProd(){

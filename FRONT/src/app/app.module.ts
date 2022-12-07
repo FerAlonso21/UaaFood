@@ -23,6 +23,7 @@ import { LocalComponent } from './General/local/local.component'
 import { CafeteriaComponent } from './General/cafeteria/cafeteria.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AltaProductosComponent } from './AdminLocal/alta-productos/alta-productos.component';
+import { AltasComponent } from './AdminSistema/altas/altas.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AltaProductosComponent } from './AdminLocal/alta-productos/alta-product
     PruebaFerchoComponent,
     CafeteriaComponent,
     LocalComponent,
-    AltaProductosComponent
+    AltaProductosComponent,
+    AltasComponent
   ],
   imports: [
     BrowserModule,

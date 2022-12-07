@@ -1,0 +1,32 @@
+<div>
+    <h5 class="text-center">CONTROL GENERAL</h5>
+    <div class="row">
+        <div class="col">
+            <h6 class="text-center">CAFETERIAS</h6>
+            <ul *ngFor="let i of cafeterias"  >
+                <li (click)="infolocales(i.ID)" style="cursor:pointer ;">{{i.Nombre}}</li>
+            </ul>
+        </div>
+        <div class="col">
+                <h6 class="text-center">LOCALES</h6>
+                <ul *ngFor="let i of locales"  >
+                    <li >{{i.Nombre}}</li>
+                </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col text-center">
+            <button type="button" class="btn btn-success" (click)="addCafeteria()">Añadir Cafeteria</button>
+            <div *ngIf="anadir==1">
+                1
+            </div>
+        </div>
+        <div class="col text-center" (click)="addLocal()">
+            <button type="button" class="btn btn-success">Añadir Local</button>
+            <div *ngIf="anadir==2">
+                2
+            </div>
+        </div>
+    </div>
+</div>
