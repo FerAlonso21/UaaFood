@@ -6,6 +6,7 @@ const locales=require('../controladores/locales');
 
 
 router.post("/altaLocal",locales.altaLocal);
+router.post("/localpropietario",locales.obtenerLocalPropietario);
 router.post("/localesCategoria",locales.LocalesXcategoria);
 router.post("/getlocales",locales.getLocales);
 router.post("/localesCafeteria",locales.getLocalesXcafeteria);

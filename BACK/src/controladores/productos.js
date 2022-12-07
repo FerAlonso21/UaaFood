@@ -2,6 +2,19 @@ const conexion = require("../config/conexion");
 
 productosControlador={};
 
+productosControlador.productoXid=async(req,res)=>{
+    let sql ='select * from productos where ID='+req.body.id
+    conexion.query(sql,(err,rows,fields)=>{
+        if(err) throw err;
+        else{ 
+            return res.status(200).json({
+                ok: true,
+                info:rows
+              });
+        }
+    })
+}
+
 productosControlador.productoMasCaroXlocal=async(req,res)=>{
     let sql ='select max(Precio),producto from productos where ID_Local='+req.body.local
     conexion.query(sql,(err,rows,fields)=>{
@@ -50,9 +63,29 @@ productosControlador.altaProducto=async(req,res)=>{
               });
         }
         else{
-            return res.status(200).json({
-                ok: true
-              });
+            let sql2 = 'SELECT LAST_INSERT_ID()'
+            conexion.query(sql2, (err, rows2, fields) => {
+                if (err) {
+                    return res.status(400).json({
+                        ok: false,
+                        error: err
+                    });
+                }
+                else {
+                    let auxstring=JSON.stringify(rows2);
+                    let dividir=auxstring.split(':');
+                    let aux1 =dividir[1];
+                    let aux2 =aux1.split('}');
+
+                
+                   console.log("aux2",aux2[0]);
+                    return res.status(200).json({
+                        ok: true,
+                        info:parseInt(aux2)
+
+                    });
+                }
+            })
         }
     })
 }

@@ -6,12 +6,13 @@ const productos=require('../controladores/productos');
 
 
 router.post("/altaProducto",productos.altaProducto);
-router.post("/productosLocal",productos.getProductosLocal);
+router.post("/productosLocal",productos.getProductosLocal); 
 router.post("/categoriaLocal",productos.getCategoriaLocal);
 router.post("/PreciosDescLocal",productos.getProductosLocalPrecioDesc);
 router.post("/PreciosAscLocal",productos.getProductosLocalPrecioAsc);
 router.post("/modificarPrecioSCtl",productos.modificarPrecioSinCatalogo);
 router.post("/productoCaroLocal",productos.productoMasCaroXlocal);
 router.post("/productoBaraLocal",productos.productoMasBaratoXlocal);
+router.post("/productoXid",productos.productoXid);
 
 module.exports=router;

@@ -9,6 +9,10 @@ export class LocalesService {
   constructor(private http:HttpClient) { }
  
 
+  infoLocalXpropietario(idPropietario:number){
+    return this.http.post(this.url+'localpropietario',{propietario:idPropietario})
+  }
+
   altaLocal(cafeteria:string,nombre:string,logo:string,descripcion:string){//muestra el carrito del usuario
     return this.http.post(this.url+'altaLocal',{cafeteria:cafeteria,nombre:nombre,logo:logo,descripcion:descripcion})
   }
