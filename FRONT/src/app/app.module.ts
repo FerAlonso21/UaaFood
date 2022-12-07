@@ -24,6 +24,7 @@ import { CafeteriaComponent } from './General/cafeteria/cafeteria.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AltaProductosComponent } from './AdminLocal/alta-productos/alta-productos.component';
 import { AltasComponent } from './AdminSistema/altas/altas.component';
+import { ComponenteMientrasDeCarritoComponent } from './General/componente-mientras-de-carrito/componente-mientras-de-carrito.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AltasComponent } from './AdminSistema/altas/altas.component';
     CafeteriaComponent,
     LocalComponent,
     AltaProductosComponent,
-    AltasComponent
+    AltasComponent,
+    ComponenteMientrasDeCarritoComponent
   ],
   imports: [
     BrowserModule,
