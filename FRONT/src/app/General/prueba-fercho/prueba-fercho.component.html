@@ -1,5 +1,5 @@
 <div>
-    <div class="row">
+    <div class="row" *ngIf="tipouser==3">
         <div class="col">
             <table class="table">
                 <thead>
@@ -15,7 +15,7 @@
                      <td>{{i.Cantidad}}</td>
                      <td>{{i.Comentario}}</td>
                      <td>{{i.Cliente}}</td>
-                     <td><button [disabled]="bandera" (click)="funcion1()">Comenzar Pedido</button></td>
+                     <td><button  (click)="funcion1()">Comenzar Pedido</button></td>
                   </tr>
                  
                 </tbody>

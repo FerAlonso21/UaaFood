@@ -4,6 +4,7 @@ import { AltaProductosComponent } from './AdminLocal/alta-productos/alta-product
 import { AltasComponent } from './AdminSistema/altas/altas.component';
 import { AppComponent } from './app.component';
 import { CafeteriaComponent } from './General/cafeteria/cafeteria.component';
+import { ComponenteMientrasDeCarritoComponent } from './General/componente-mientras-de-carrito/componente-mientras-de-carrito.component';
 import { HomeComponent } from './General/home/home.component';
 import { LocalComponent } from './General/local/local.component';
 import { LoginComponent } from './General/login/login.component';
@@ -16,10 +17,11 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'registro', component: RegistroComponent},
   //CHARLY AQUI DEJAME ESTAS 3 LINEAS EN BLANCO PARA YO PONER COSAS
+  {path: 'simulacioncarrito', component: ComponenteMientrasDeCarritoComponent},
   {path: 'adminLocal', component: AltaProductosComponent},
   {path: 'adminsistema', component: AltasComponent},
   //{path: 'prueba', component: PruebaFerchoComponent}
-  //{path: ':room', component: PruebaFerchoComponent},
+  {path: ':room', component: PruebaFerchoComponent},
 
   //
   {path: 'cafeteria', component: CafeteriaComponent},

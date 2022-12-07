@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { CafeteriasService } from 'src/app/Servicios/cafeterias.service';
+import { CarritoService } from 'src/app/Servicios/carrito.service';
 import { PedidosService } from 'src/app/Servicios/pedidos.service';
 import { SocketService } from 'src/app/Servicios/socket.service';
 
@@ -12,10 +13,11 @@ import { SocketService } from 'src/app/Servicios/socket.service';
 })
 export class PruebaFerchoComponent implements OnInit {
   listado:any=[];
-  bandera:boolean=true;
+  tipouser:number=0;
+  //bandera:boolean=true;
   room:any;
   info:string='';
-  constructor(private router:ActivatedRoute,private servicioPedidos:PedidosService,private coockieService:CookieService,private socketService:SocketService) { 
+  constructor(private servicioCarrito:CarritoService,private router:ActivatedRoute,private servicioPedidos:PedidosService,private coockieService:CookieService,private socketService:SocketService) { 
     this.socketService.outEven.subscribe(res => {
       this.info=res;
       
@@ -26,10 +28,11 @@ export class PruebaFerchoComponent implements OnInit {
     this.room= this.router.snapshot.paramMap.get('room');
     this.coockieService.set('room',this.room);
     console.log(this.room);
-  //  this.servicioPedidos.getPedidosXlocal(2).subscribe((res:any)=>{
-  //   this.listado=res.info;
-  //   console.log(res)
-  //  })
+    
+    this.servicioPedidos.getPedidosXlocal(2).subscribe((res:any)=>{
+     this.listado=res.info;
+     console.log(res)
+   })
 
   }
 
