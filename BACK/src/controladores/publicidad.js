@@ -6,7 +6,7 @@ publicidadControlador.localesConPublicidad=async(req,res)=>{
     let sql ='select distinct local,locales.Nombre from publicidad left join locales on publicidad.Local=locales.ID;'
     conexion.query(sql,(err,rows,fields)=>{
         if(err) throw err;
-        else{ 
+        else{  
             return res.status(200).json({
                 ok: true,
                 info:rows

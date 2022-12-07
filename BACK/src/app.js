@@ -6,6 +6,8 @@ const jwt =require('jsonwebtoken');
 const morgan=require('morgan');
 const multer=require('multer')
 const fs =require('fs')
+const path = require('path');
+
 
 const cafeteriasRutas=require('./rutas/cafeteria');
 const catalogorutas=require('./rutas/catalogos');
@@ -16,10 +18,12 @@ const productosrutas=require('./rutas/productos');
 const carritorutas=require('./rutas/carrito');
 const pedidosrutas=require('./rutas/pedidos');
 const usuariosrutas=require('./rutas/usuarios');
+const { error } = require('console');
 
 require('../src/config/conexion') ;
 
 app.use(cors());
+
 
 const port =(process.env.port || 3000);
 const options = {
@@ -56,18 +60,18 @@ app.set('port',port);
 //MIDDLEWARES
 app.use(morgan('dev'));
 
-app.use(express.static('public'));
+
 
 
 const storage=multer.diskStorage({
   filename:function(res,file,cb){
-      const ext= file.originalname.split('.')[1];
-
-      cb(null,`${ext[0]}.${ext}`);
+      const ext= file.originalname.split('.');
+      cb(null,file.originalname);
+     // cb(null,`${file.originalname}.${ext}`);
   },
   destination:function(res,file,cb){
-      console.log(__dirname);
-      cb(null,'./public/'+file.originalname);
+      //console.log("la ruta actual",(__dirname+'/public'));
+      cb(null,'./src/public/');
   }
 })
 const upload=multer({storage:storage});
@@ -88,6 +92,7 @@ app.use('/publicidad',publicidadrutas); //EndPoint Cafeterias
 app.use('/usuarios',usuariosrutas); //EndPoint Cafeterias
 app.use('/catalogo',catalogorutas); //EndPoint Cafeterias
 
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/',(req,res)=>{
   res.status(200).json({ 
