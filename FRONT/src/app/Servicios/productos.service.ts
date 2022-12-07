@@ -29,4 +29,7 @@ ProductosXpreciodescXlocal(local:number){//muestra el carrito del usuario
 aProductosXprecioascXlocal(local:number){//muestra el carrito del usuario
   return this.http.post(this.url+'PreciosAscLocal',{local:local})
 }
+productoXid(id:number){//muestra el carrito del usuario
+  return this.http.post(this.url+'productoXid',{id:id})
+}
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/Servicios/usuarios.service';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ResourceLoader } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,8 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   formLogin!: FormGroup;
-  constructor(private ServicioUsuarios:UsuariosService, private fb:FormBuilder) { }
+  
+  constructor(private ServicioUsuarios:UsuariosService, private fb:FormBuilder,private router: Router) { }
 
   ngOnInit(): void {
   this.formLogin = this.fb.group({
@@ -19,13 +22,18 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void{
+    const sleep = (ms: number | undefined) => new Promise(r => setTimeout(r, ms));
     console.log(this.formLogin.value);
     console.log(this.formLogin.get('id')?.value);
-    this.ServicioUsuarios.login(this.formLogin.value.id,this.formLogin.value.password).subscribe((res:any)=>{
-      console.log(res);
+    this.ServicioUsuarios.login(this.formLogin.value.id,this.formLogin.value.password).subscribe(async (res:any)=>{
       if(res.ok==true){
-        console.log(res);
-        
+        console.log(res.tipo);
+        sessionStorage.setItem('id',this.formLogin.get('id')?.value);
+        sessionStorage.setItem('nombre',res.usuario);
+        sessionStorage.setItem('token',res.accesToken);
+        sessionStorage.setItem('tipo',res.tipo);
+        this.router.navigate(['/','home']);
+        location.assign('/home');
       }
     })
   }

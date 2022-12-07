@@ -15,11 +15,20 @@ export class NavbarComponent implements OnInit {
  
   
   constructor(private ServicioUsuarios:UsuariosService ) { }
-
-
+   id:any;
+   tipo:number=0;
 
   ngOnInit(): void {
-
+    let aux: any;
+    this.id=sessionStorage.getItem('id');
+    if(sessionStorage.getItem('tipo')!=null){
+      aux=sessionStorage.getItem('tipo');
+      this.tipo=parseInt(aux);
+      console.log(typeof(this.tipo));
+    }
+    console.log(this.id);
+    console.log(this.tipo);
   }
   
+
 }

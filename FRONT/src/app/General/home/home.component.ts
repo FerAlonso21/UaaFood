@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(private servicoCafeterias:CafeteriasService,private router:Router) { }
 
   ngOnInit(): void {
+    
     this.servicoCafeterias.getCafeterias().subscribe((res:any)=>{
       if(res.ok==true){
         for(let i of res.info[0]){

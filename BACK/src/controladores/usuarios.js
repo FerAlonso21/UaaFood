@@ -25,10 +25,15 @@ usuariosControlador.login = async (req, res) => {
                     accesToken: accesToken,
                     expiresIn: expiresIn
                 });
-            } else {
-                return res.status(400).json({
+                 }else{
+                return res.status(200).json({
+                    ok:false,   
+                    msg:"contraseña incorrecta" 
+             } else {
+                return res.status(200).json({
                     ok: false,
                     msg: "contraseña incorrecta"
+
                 });
             }    
         }
