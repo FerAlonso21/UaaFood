@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'registro', component: RegistroComponent},
   //CHARLY AQUI DEJAME ESTAS 3 LINEAS EN BLANCO PARA YO PONER COSAS
   //{path: 'prueba', component: PruebaFerchoComponent}
-  {path: ':room', component: PruebaFerchoComponent}
+  //{path: ':room', component: PruebaFerchoComponent},
 
   //
   {path: 'cafeteria', component: CafeteriaComponent},

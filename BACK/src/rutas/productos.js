@@ -13,5 +13,6 @@ router.post("/PreciosAscLocal",productos.getProductosLocalPrecioAsc);
 router.post("/modificarPrecioSCtl",productos.modificarPrecioSinCatalogo);
 router.post("/productoCaroLocal",productos.productoMasCaroXlocal);
 router.post("/productoBaraLocal",productos.productoMasBaratoXlocal);
+router.post("/productoXid",productos.productoXid);
 
 module.exports=router;

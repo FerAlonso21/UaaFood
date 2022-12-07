@@ -1,56 +1,167 @@
 <nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-    <div class="d-flex align-items-center">
+
+
+<!-- --logo-- -->
+  <div class="container-fluid"  >
+    <div class="d-flex align-items-center" *ngIf="tipo!=4">
       <a class="navbar-brand" href="#">
         <img src="../../../assets/UaaFood.png" alt="" width="50" height="50">
       </a>
-
     </div>
-      
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  
+  
+    <div class="d-flex align-items-center" *ngIf="tipo==4">
+      <a class="navbar-brand" href="#">
+        <img src="../../../assets/UaaFood.png" alt="" width="50" height="50">
+      </a>
+    </div>
+  
+<!-- ***** Cliente (Tipo 1)***** -->
+    <button *ngIf="tipo==1 || tipo==0" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       
-      <form class="d-flex container-fluid justify-content-center" >
+      <form *ngIf="tipo==1 || tipo==0" class="d-flex container-fluid justify-content-center" >
         <input class="rounded me-2" type="search" placeholder="Que quieres comer hoy?!" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
+
       <div class="d-flex" id="derecha" >
-        <a href="" >
-          <img src="../../../assets/carrito.ico" class="mx-5" id="carrito" alt="" width="35" height="35" >
+        <a *ngIf="tipo==1" href="" data-bs-target="#carritoModal" data-bs-toggle="modal">
+          <img src="../../../assets/carrito.ico"  class="mx-5" id="carrito" alt="" width="35" height="35" >
         </a>
-        <button class="btn "[routerLink]="['/login']">Login</button>
-        
+        <button *ngIf="tipo==0" class="btn "[routerLink]="['/login']">Login</button>
+        <button *ngIf="tipo==1" class="btn "  data-bs-target="#offcanvasRight" data-bs-toggle="offcanvas">Pedidos</button>
       </div>
-          
-        
     </div>
   </div>
+<!-- ***** Fin Cliente ***** -->
+
+
+<!-- ***** Administrador del local ***** -->
+<div class="container-fluid" *ngIf="tipo==2">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+<!-- ***** Fin Admin del Local (Tipo 2)***** -->
+
+<!-- ***** Admin del Sistema (Tipo 3)***** -->
+<div class="container-fluid" *ngIf="tipo==3">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Gestionar Cafeterias</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Gestionar Locales</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- ***** Fin Admin del Sistema ***** -->
+
 </nav>
 
-<!-- ----Modal Login---- -->
-<div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+
+
+<!-- ----------------------------- extra --------------------------------- -->
+
+<!-- ---- carrito ---- -->
+<div class=" modal fade" id="carritoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
       <div class="modal-body">
-          <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
-          <div class="form-area " id="form">
-              <h1 class="text-center">Inicia Sesion</h1>
-              <form>
-                  <div class="mb-3 mt-4">
-                      <label for="exampleInputEmail1" class="form-label">ID</label>
-                      <input type="number" ng-model="id" class="form-control" id="exampleInputID" >
-                  </div>
-                  <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                      <input type="password" ng-model="cont" class="form-control" id="exampleInputPassword1">
-                  </div>
-                  <button  onclick="login()">Iniciar Sesion</button>
-                  <p>Nuevo Usuario?    <a data-bs-dismiss="modal" [routerLink]="['/registro']">Registrate</a></p>
-              </form>
+        <div class="card rounded-3 mb-4">
+          <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div class="col-md-2 col-lg-2 col-xl-2">
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+                  class="img-fluid rounded-3" alt="Cotton T-shirt">
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-3">
+                <p class="lead fw-normal mb-2">Basic T-shirt</p>
+                <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                <button class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                  <i class="fas fa-minus"></i>
+                </button>
+
+                <input id="form1" min="0" name="quantity" value="2" type="number"
+                  class="form-control form-control-sm" />
+
+                <button class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                <h5 class="mb-0">$499.00</h5>
+              </div>
+              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ---- pedidos ---- -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    ...
   </div>
 </div>

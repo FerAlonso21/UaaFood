@@ -26,10 +26,10 @@ export class PruebaFerchoComponent implements OnInit {
     this.room= this.router.snapshot.paramMap.get('room');
     this.coockieService.set('room',this.room);
     console.log(this.room);
-   this.servicioPedidos.getPedidosXlocal(2).subscribe((res:any)=>{
-    this.listado=res.info;
-    console.log(res)
-   })
+  //  this.servicioPedidos.getPedidosXlocal(2).subscribe((res:any)=>{
+  //   this.listado=res.info;
+  //   console.log(res)
+  //  })
 
   }
 

@@ -26,7 +26,7 @@ usuariosControlador.login=async(req,res)=>{
                     expiresIn:expiresIn 
                 });
             }else{
-                return res.status(400).json({
+                return res.status(200).json({
                     ok:false,   
                     msg:"contraseña incorrecta" 
                 });
