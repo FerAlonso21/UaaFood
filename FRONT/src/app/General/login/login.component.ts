@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private ServicioUsuarios:UsuariosService, private fb:FormBuilder,private router: Router) { }
 
   ngOnInit(): void {
+    sessionStorage.setItem('idl','1');
   this.formLogin = this.fb.group({
     id:['',Validators.required],
     password:['',Validators.required]
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void{
-    const sleep = (ms: number | undefined) => new Promise(r => setTimeout(r, ms));
+    
     console.log(this.formLogin.value);
     console.log(this.formLogin.get('id')?.value);
     this.ServicioUsuarios.login(this.formLogin.value.id,this.formLogin.value.password).subscribe(async (res:any)=>{

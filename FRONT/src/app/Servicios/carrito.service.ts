@@ -10,7 +10,7 @@ export class CarritoService {
   constructor(private http:HttpClient) { }
 
   anadirProducto(usuario:number,producto:number,cantidad:number,sabor:string,comentario:string,total:number){//añade productos al carro
-    return this.http.post(this.url+'anadirProd',{usuario:usuario,producto:producto,cantidad:cantidad,sabor:sabor,comentario:comentario,tota:total})
+    return this.http.post(this.url+'anadirProd',{usuario:usuario,producto:producto,cantidad:cantidad,sabor:sabor,comentario:comentario,total:total})
   }
   carritoUsuario(usuario:number){//muestra el carrito del usuario
     return this.http.post(this.url+'carritoActivoUsuario',{usuario:usuario})

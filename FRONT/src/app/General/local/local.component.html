@@ -37,16 +37,19 @@
           <p>{{this.producto.Descripcion}}</p>
         </div>
         <div>
-          <div class="form-outline mb-4">
-            <label class="form-label" for="form4Example3">Agrega un comentario:</label>
-            <textarea class="form-control" id="form4Example3" rows="4">{{coment}}</textarea>
-            <div *ngIf="this.producto.Categoria==1" class="form-group col-md-4">
-              <label for="inputState">Sabor</label>
-              <select id="inputState" class="form-control">
-                <option *ngFor="let i of menu" selected>Choose...</option>
-              </select>
+          <form [formGroup]="formulario">
+            <div class="form-outline mb-4">
+              <label class="form-label" for="form4Example3">Agrega un comentario:</label>
+              <textarea [value]="coment" class="form-control" id="form4Example3" rows="4" formControlName="comentario">{{coment}}</textarea>
+              <div *ngIf="this.producto.Catalogo==1" class="form-group col-md-4">
+                <label for="inputState">Sabor</label>
+                <select id="inputState" class="form-control" formControlName="sabor">
+                  <option *ngFor="let i of sabores" [value]="i.ID" selected>{{i.Descripcion}}   +${{i.Precio}}</option>
+                </select>
+              </div>
             </div>
-          </div>
+          </form>
+          
         </div>
         
       </div>
