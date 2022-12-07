@@ -16,17 +16,39 @@
     </div>
     <hr>
     <div class="row">
+        <div class="d-flex justify-content-around align-items-start">
+            <button type="button" class="btn btn-success" (click)="acafe()">Añadir Cafeteria</button>
+        <button type="button" class="btn btn-warning" (click)="aloc()">Añadir Local</button>
+        </div>
         <div class="col text-center">
-            <button type="button" class="btn btn-success" (click)="addCafeteria()">Añadir Cafeteria</button>
             <div *ngIf="anadir==1">
-                1
+                <form [formGroup]="formulario">
+                    <label for="">Nombre</label>
+                    <input class="ms-2" type="text" name="" id="" formControlName="Nombre"><br>
+                    <label for="">Ubicacion</label>
+                    <input class="ms-2 mt-2"  type="text" formControlName="Ubicacion"><br>
+                    <label for="">Imagen</label>
+                    <input class="ms-2 mt-2" type="file" capture="camera" multiple formControlName="Imagen" accept="image/*"  (change)="getFile($event)"><br>
+                
+                </form>
+                <button type="button" (click)="addCafeteria()" [disabled]="!formulario.valid">Guardar</button>
+
             </div>
         </div>
-        <div class="col text-center" (click)="addLocal()">
-            <button type="button" class="btn btn-success">Añadir Local</button>
             <div *ngIf="anadir==2">
-                2
+                <form [formGroup]="formulario2">
+                    <label for="">ID Cafeteria</label>
+                    <input class="ms-2" type="text" name="" id="" formControlName="Id_caf"><br>
+                    <label for="">Nombre</label>
+                    <input class="ms-2 mt-2"  type="text" formControlName="Name"><br>
+                    <label for="">Imagen</label>
+                    <input class="ms-2 mt-2" type="file" capture="camera" multiple formControlName="Imageen" accept="image/*"  (change)="getFile($event)"><br>
+                    <label for="">Descripcion</label>
+                    <input class="ms-2 mt-2"  type="text" formControlName="Desc"><br>
+                </form>
+                <button type="button" (click)="addLocal()" [disabled]="!formulario2.valid">Guardar</button>
+
             </div>
         </div>
     </div>
-</div>
+
