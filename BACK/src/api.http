@@ -1,9 +1,8 @@
-POST http://localhost:3000/usuarios/altaUsuario
+POST http://localhost:3000/usuarios/login
 Content-Type: application/json
 
 {
     "id":"27",
-    "contrasena":"redes22",
-    "tipo":"1",
-    "nombre":"juan"
+    "contrasena":"redes22"
+    
 }

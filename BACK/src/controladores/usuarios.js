@@ -5,37 +5,33 @@ const SECRET_KEY = 'Redes22'
 
 usuariosControlador = {};
 
-usuariosControlador.login = async (req, res) => {
-    let sql = 'select * from usuarios where ID=' + req.body.id
-    conexion.query(sql, async (err, rows, fields) => {
-        if (err) {
-
+usuariosControlador.login=async(req,res)=>{
+    let sql ='select * from usuarios where ID='+req.body.id
+     conexion.query(sql,async (err,rows,fields)=>{
+        if(err){
+            
             throw err;
-        }
-        else {
-
-            const contraValida = await bcrypt.compare(req.body.contrasena, rows[0].Contrasena);
-            if (contraValida) {
-                const expiresIn = 24 * 60 * 60;
-                const accesToken = jwt.sign({ id: rows.ID }, SECRET_KEY, { expiresIn: expiresIn });
+        } 
+        else{
+          
+            const contraValida =await  bcrypt.compare(req.body.contrasena,rows[0].Contrasena);
+            if (contraValida){
+                const expiresIn= 24*60*60;
+                const accesToken =jwt.sign({id: rows.ID},SECRET_KEY,{expiresIn:expiresIn});
                 return res.status(200).json({
-                    ok: true,
-                    usuario: rows[0].Nombre,
-                    tipo: rows[0].Tipo,
-                    accesToken: accesToken,
-                    expiresIn: expiresIn
+                    ok:true,
+                    usuario:rows[0].Nombre,
+                    tipo:rows[0].Tipo,
+                    accesToken:accesToken,
+                    expiresIn:expiresIn 
                 });
-                 }else{
+            }else{
+
                 return res.status(200).json({
                     ok:false,   
                     msg:"contraseña incorrecta" 
-             } else {
-                return res.status(200).json({
-                    ok: false,
-                    msg: "contraseña incorrecta"
-
                 });
-            }    
+            }
         }
     })
 }
