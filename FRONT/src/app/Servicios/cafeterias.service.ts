@@ -16,6 +16,6 @@ export class CafeteriasService {
   }
 
   altaCafeteria(nombre:string,ubicacion:string,imagen:string){
-    return this.http.post(this.url+'getCafeteria',{nombre:nombre,ubicacion:ubicacion,imagen:imagen})
+    return this.http.post(this.url+'altaCafeteria',{nombre:nombre,ubicacion:ubicacion,imagen:imagen})
   }
 }

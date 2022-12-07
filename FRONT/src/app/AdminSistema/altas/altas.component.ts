@@ -35,8 +35,14 @@ export class AltasComponent implements OnInit {
 
     this.servicioCafeterias.getCafeterias().subscribe((res:any)=>{
       if(res.ok==true){
-        this.cafeterias=res.info[0]
-        console.log(this.cafeterias)
+        this.cafeterias=res.info[0];
+        console.log(this.cafeterias);
+      }
+    })
+    this.servicioLocales.getLocales().subscribe((res:any)=>{
+      if(res.ok==true){
+        this.locales=res.info[0];
+        console.log(this.locales);
       }
     })
   }
@@ -51,19 +57,25 @@ export class AltasComponent implements OnInit {
     
     body.append('myfile',this.fileTmp.fileRaw,nombrearchivo);
     this.servicioProductos.altaImagen(body).subscribe((res1:any)=>{
-     this.servicioCafeterias.altaCafeteria(this.formulario.get('Nombre')?.value,this.formulario.get('Ubicacion')?.value,'http://localhost:3000/'+nombrearchivo);
+     this.servicioCafeterias.altaCafeteria(this.formulario.get('Nombre')?.value,this.formulario.get('Ubicacion')?.value,'http://localhost:3000/'+nombrearchivo).subscribe((res2:any)=>{
+      console.log(res2+"cafe creado");
+     });
 
     }
   )}
 
   addLocal(){
-    
+    // altaLocal(cafeteria:number,nombre:string,logo:string,descripcion:string){//muestra el carrito del usuario
+    //   return this.http.post(this.url+'altaLocal',{cafeteria:cafeteria,nombre:nombre,logo:logo,descripcion:descripcion})
+    // }
     //(ID_Cafeteria,Nombre,Logo,Descripcion)
     const body=new FormData(); 
     let nombrearchivo='Local'+'_'+this.formulario.get('Name')?.value+'.'+ this.fileTmp.extension;
     body.append('myfile',this.fileTmp.fileRaw,nombrearchivo);
     this.servicioProductos.altaImagen(body).subscribe((res1:any)=>{
-      this.servicioLocales.altaLocal(this.formulario.get('Id_cafe')?.value,this.formulario.get('Name')?.value,'http://localhost:3000/'+nombrearchivo,this.formulario.get('Desc')?.value);
+      this.servicioLocales.altaLocal(this.formulario.get('Id_cafe')?.value,this.formulario.get('Name')?.value,'http://localhost:3000/'+nombrearchivo,this.formulario.get('Desc')?.value).subscribe((res2:any)=>{
+        console.log(res2+"local creado");
+      });
  
     }
   )}
